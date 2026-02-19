@@ -172,6 +172,7 @@
     }
 
     .stat {
+      display: block;
       padding: 16px;
       border-radius: 14px;
       border: 1px solid var(--line);
@@ -179,6 +180,9 @@
       text-transform: uppercase;
       font-size: 12px;
       letter-spacing: 1px;
+      text-decoration: none;
+      color: var(--ink);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
     }
 
     .stat span {
@@ -186,6 +190,13 @@
       font-size: 18px;
       color: var(--accent-2);
       margin-top: 6px;
+    }
+
+    .stat:hover,
+    .stat:focus-visible {
+      transform: translateY(-2px);
+      border-color: rgba(240, 74, 58, 0.7);
+      box-shadow: 0 14px 24px -18px rgba(240, 74, 58, 0.55);
     }
 
     .section-title {
