@@ -774,61 +774,6 @@
       display: block;
     }
 
-    .crew-hero {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 28px;
-      align-items: center;
-      padding: 42px 0 20px;
-    }
-
-    .crew-hero h1 {
-      font-size: clamp(42px, 8vw, 80px);
-      line-height: 0.95;
-      margin: 0 0 12px;
-    }
-
-    .crew-hero p {
-      margin: 0 0 24px;
-      font-family: "Trebuchet MS", "Lucida Sans", sans-serif;
-      font-size: 18px;
-      line-height: 1.6;
-      color: var(--muted);
-    }
-
-    .crew-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 18px;
-    }
-
-    .crew-card {
-      border-radius: 18px;
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.03);
-      padding: 20px;
-      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .crew-card:hover {
-      transform: translateY(-8px);
-      border-color: rgba(240, 74, 58, 0.65);
-      box-shadow: 0 18px 28px -20px rgba(240, 74, 58, 0.45);
-    }
-
-    .crew-card h3 {
-      margin: 0 0 10px;
-      font-size: 22px;
-      text-transform: uppercase;
-    }
-
-    .crew-card p {
-      margin: 0;
-      font-family: "Trebuchet MS", "Lucida Sans", sans-serif;
-      color: var(--muted);
-      line-height: 1.6;
-      font-size: 14px;
-    }
 
     footer {
       margin-top: 48px;
