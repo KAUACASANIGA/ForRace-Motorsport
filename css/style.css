@@ -1060,14 +1060,18 @@
         max-width: none;
       }
 
-      .car-photo {
+      .fleet .car-photo {
         height: auto;
-        min-height: 190px;
-        aspect-ratio: 16 / 9;
+        min-height: 0;
+        height: 200px;
+        aspect-ratio: auto;
       }
 
-      .car-photo img {
-        min-height: 190px;
+      .fleet .car-photo img {
+        min-height: 0;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
       }
 
       .car-photo .overlay {
