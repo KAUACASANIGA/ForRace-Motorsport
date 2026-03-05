@@ -4,6 +4,21 @@ const parseDelimitedList = (value, separator) =>
     .split(separator)
     .map((item) => item.trim())
     .filter(Boolean);
+
+const lockBodyScroll = () => {
+  const scrollY = window.scrollY || window.pageYOffset || 0;
+  document.body.dataset.scrollLock = String(scrollY);
+  document.body.style.top = `-${scrollY}px`;
+  document.body.classList.add("is-overlay-open");
+};
+
+const unlockBodyScroll = () => {
+  const scrollY = Number.parseInt(document.body.dataset.scrollLock || "0", 10) || 0;
+  document.body.classList.remove("is-overlay-open");
+  document.body.style.top = "";
+  document.body.removeAttribute("data-scroll-lock");
+  window.scrollTo(0, scrollY);
+};
 const runFadeSwap = (element, fadeClassName, swapDelayMs, swap) => {
   element.classList.add(fadeClassName);
   window.setTimeout(() => {
@@ -492,7 +507,7 @@ const bindHorizontalSwipe = (element, onSwipeLeft, onSwipeRight) => {
     setActiveCard(cardIndex, false);
     overlay.scrollTop = 0;
     overlay.setAttribute("aria-hidden", "false");
-    document.body.classList.add("is-overlay-open");
+    lockBodyScroll();
 
     isMounted = true;
     overlay.style.display = "grid";
@@ -509,7 +524,7 @@ const bindHorizontalSwipe = (element, onSwipeLeft, onSwipeRight) => {
     hideTimer = window.setTimeout(() => {
       overlay.style.display = "none";
       overlay.setAttribute("aria-hidden", "true");
-      document.body.classList.remove("is-overlay-open");
+      unlockBodyScroll();
       activeCard = null;
       isMounted = false;
     }, hideDelayMs);
@@ -848,7 +863,7 @@ const bindHorizontalSwipe = (element, onSwipeLeft, onSwipeRight) => {
     }
     overlay.scrollTop = 0;
     overlay.setAttribute("aria-hidden", "false");
-    document.body.classList.add("is-overlay-open");
+    lockBodyScroll();
     overlay.style.display = "grid";
     window.setTimeout(() => overlay.classList.add("is-visible"), 20);
   };
@@ -858,7 +873,7 @@ const bindHorizontalSwipe = (element, onSwipeLeft, onSwipeRight) => {
     window.setTimeout(() => {
       overlay.style.display = "none";
       overlay.setAttribute("aria-hidden", "true");
-      document.body.classList.remove("is-overlay-open");
+      unlockBodyScroll();
       activeData = null;
     }, 280);
   };
