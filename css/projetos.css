@@ -694,7 +694,7 @@
   .project-rent-widget,
   .project-track-button,
   .project-focus-content {
-    touch-action: pan-y;
+    touch-action: pan-x pan-y;
   }
 
   .projects-hero {
@@ -758,7 +758,7 @@
     scroll-snap-align: center;
     scroll-snap-stop: always;
     transition: transform 0.35s ease, opacity 0.35s ease;
-    touch-action: pan-y;
+    touch-action: pan-x pan-y;
   }
 
   .projects-grid::before,

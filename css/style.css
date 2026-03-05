@@ -1163,7 +1163,7 @@ body.is-overlay-open {
         scroll-snap-align: center;
         scroll-snap-stop: always;
         transition: transform 0.35s ease, opacity 0.35s ease;
-        touch-action: pan-y;
+        touch-action: pan-x pan-y;
       }
 
       .fleet::before,
@@ -1380,7 +1380,7 @@ body.is-overlay-open {
   .cta,
   .social-link,
   .car-action {
-    touch-action: pan-y;
+    touch-action: pan-x pan-y;
   }
 
   .fleet,
