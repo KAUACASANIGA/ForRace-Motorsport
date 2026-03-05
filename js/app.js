@@ -1,4 +1,4 @@
-﻿const fleetGalleryControllers = new Map();
+﻿﻿const fleetGalleryControllers = new Map();
 const parseDelimitedList = (value, separator) =>
   (value || "")
     .split(separator)
@@ -384,7 +384,7 @@ const bindHorizontalSwipe = (element, onSwipeLeft, onSwipeRight) => {
   closeButton.type = "button";
   closeButton.className = "fleet-focus-close";
   closeButton.setAttribute("aria-label", "Fechar destaque");
-  closeButton.textContent = "ï¿½";
+  closeButton.textContent = "X";
 
   const media = document.createElement("img");
   media.className = "fleet-focus-media";
@@ -420,6 +420,13 @@ const bindHorizontalSwipe = (element, onSwipeLeft, onSwipeRight) => {
   cardEl.append(closeButton, media, dots, content);
   overlay.append(cardEl, cardDots, cardPrevButton, cardNextButton);
   fleetRoot.appendChild(overlay);
+
+  const syncFleetMediaHeight = () => {
+    media.style.height = "";
+    cardEl.classList.remove("is-compact");
+  };
+
+  media.addEventListener("load", syncFleetMediaHeight);
 
   const updateDots = () => {
     dots.innerHTML = "";
@@ -482,6 +489,7 @@ const bindHorizontalSwipe = (element, onSwipeLeft, onSwipeRight) => {
     const hasGallery = gallerySize > 1;
     dots.style.display = hasGallery ? "flex" : "none";
     updateDots();
+    syncFleetMediaHeight();
   };
 
   const setActiveCard = (nextCardIndex, shouldSyncCurrent = true) => {
@@ -525,6 +533,7 @@ const bindHorizontalSwipe = (element, onSwipeLeft, onSwipeRight) => {
     showTimer = window.setTimeout(() => {
       overlay.classList.add("is-visible");
     }, enterDelayMs);
+    syncFleetMediaHeight();
   };
 
   const closeOverlay = () => {
@@ -589,6 +598,8 @@ const bindHorizontalSwipe = (element, onSwipeLeft, onSwipeRight) => {
   });
 
   overlay.style.display = "none";
+
+  window.addEventListener("resize", syncFleetMediaHeight);
 })();
 
 (() => {
@@ -669,14 +680,14 @@ const bindHorizontalSwipe = (element, onSwipeLeft, onSwipeRight) => {
   tagLine.setAttribute("aria-hidden", "true");
   const tagLabel = document.createElement("span");
   tagLabel.className = "project-tag-label";
-  tagLabel.textContent = "DescriÃ§Ã£o";
+  tagLabel.textContent = "Descrição";
   tag.append(tagLine, tagLabel);
   const trackButtons = document.createElement("div");
   trackButtons.className = "project-track-buttons";
   tagRow.append(tag);
   const trackHeading = document.createElement("div");
   trackHeading.className = "project-track-heading";
-  trackHeading.textContent = "AutÃ³dromos";
+  trackHeading.textContent = "Autodromos";
   const title = document.createElement("h3");
   const projectInfo = document.createElement("div");
   projectInfo.className = "project-info";
@@ -716,6 +727,11 @@ const bindHorizontalSwipe = (element, onSwipeLeft, onSwipeRight) => {
 
   const setOverlayDisplay = () => {
     overlay.style.display = projectMediaQuery.matches ? "flex" : "grid";
+  };
+
+  const syncProjectMediaHeight = () => {
+    mediaWrap.style.height = "";
+    card.classList.remove("is-compact");
   };
 
   const trackIcons = ["img/track-01.webp", "img/track-02.webp", "img/track-03.webp", "img/track-04.webp"];
@@ -851,7 +867,7 @@ const bindHorizontalSwipe = (element, onSwipeLeft, onSwipeRight) => {
       rentCta.removeAttribute("href");
       rentCta.style.pointerEvents = "none";
       rentCta.style.opacity = "0.6";
-      rentCta.textContent = "LocaÃ§Ã£o indisponÃ­vel";
+      rentCta.textContent = "Locação indisponível";
       rentCta.setAttribute("aria-disabled", "true");
       rentCta.removeAttribute("target");
       rentCta.removeAttribute("rel");
@@ -860,6 +876,7 @@ const bindHorizontalSwipe = (element, onSwipeLeft, onSwipeRight) => {
     const hasGallery = size > 1;
     dots.style.display = hasGallery ? "flex" : "none";
     renderDots();
+    syncProjectMediaHeight();
   };
 
   const setActiveProjectCard = (nextCardIndex) => {
@@ -901,6 +918,7 @@ const bindHorizontalSwipe = (element, onSwipeLeft, onSwipeRight) => {
     card.style.touchAction = "pan-y";
     lockBodyScroll();
     window.setTimeout(() => overlay.classList.add("is-visible"), 20);
+    syncProjectMediaHeight();
   };
 
   const close = () => {
@@ -943,7 +961,7 @@ const bindHorizontalSwipe = (element, onSwipeLeft, onSwipeRight) => {
     preview.className = "project-rent-preview";
 
     const previewTitle = document.createElement("h4");
-    previewTitle.textContent = rentUrl ? "Aluga-se" : "IndisponÃ­vel";
+    previewTitle.textContent = rentUrl ? "Aluga-se" : "Indisponível";
     preview.append(previewTitle);
     const summaryElement = el.querySelector("p");
     if (summaryElement) {
@@ -1032,6 +1050,7 @@ const bindHorizontalSwipe = (element, onSwipeLeft, onSwipeRight) => {
   const syncOverlayOnResize = () => {
     if (overlay.style.display === "none") return;
     setOverlayDisplay();
+    syncProjectMediaHeight();
   };
 
   if (typeof projectMediaQuery.addEventListener === "function") {
@@ -1039,6 +1058,10 @@ const bindHorizontalSwipe = (element, onSwipeLeft, onSwipeRight) => {
   } else if (typeof projectMediaQuery.addListener === "function") {
     projectMediaQuery.addListener(syncOverlayOnResize);
   }
+
+  media.addEventListener("load", syncProjectMediaHeight);
+  mediaVideo.addEventListener("load", syncProjectMediaHeight);
+  window.addEventListener("resize", syncProjectMediaHeight);
 
   overlay.style.display = "none";
 })();

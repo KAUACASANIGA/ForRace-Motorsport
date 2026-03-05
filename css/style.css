@@ -26,16 +26,29 @@
       font-style: italic;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+* {
+  box-sizing: border-box;
+}
 
-    body {
-      margin: 0;
-      background: radial-gradient(circle at 20% 20%, rgba(240, 74, 58, 0.2), transparent 45%),
-      radial-gradient(circle at 80% 0%, rgba(247, 197, 72, 0.18), transparent 40%),
-      linear-gradient(180deg, #0b0d10 0%, #0f1217 50%, #0b0d10 100%);
-      color: var(--ink);
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+html {
+  background-color: #0b0d10;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  background-color: #0b0d10;
+  background: radial-gradient(circle at 20% 20%, rgba(240, 74, 58, 0.2), transparent 45%),
+  radial-gradient(circle at 80% 0%, rgba(247, 197, 72, 0.18), transparent 40%),
+  linear-gradient(180deg, #0b0d10 0%, #0f1217 50%, #0b0d10 100%);
+  color: var(--ink);
       font-family: var(--display-font);
       letter-spacing: 0.4px;
       font-weight: 700;
@@ -1024,10 +1037,16 @@ body.is-overlay-open {
       }
     }
 
-    @media (max-width: 720px) {
-      .wrap {
-        padding: 0 14px 56px;
-      }
+@media (max-width: 768px) {
+  .wrap {
+    padding: 0 16px 56px;
+  }
+}
+
+@media (max-width: 720px) {
+  .wrap {
+    padding: 0 14px 56px;
+  }
 
       nav {
         display: none;
@@ -1241,17 +1260,16 @@ body.is-overlay-open {
         place-items: center;
       }
 
-      .fleet-focus-card {
-        width: min(94vw, 620px);
-        height: clamp(520px, 78vh, 680px);
-        max-height: calc(100vh - 88px);
-        max-height: calc(100svh - 88px);
-        overflow-y: auto;
-        overflow-x: hidden;
-        -webkit-overflow-scrolling: touch;
-        margin: 0 auto;
-        border-radius: 18px;
-      }
+    .fleet-focus-card {
+      width: min(94vw, 620px);
+      height: clamp(520px, 78vh, 680px);
+      max-height: calc(100vh - 88px);
+      max-height: calc(100svh - 88px);
+      overflow: hidden;
+      -webkit-overflow-scrolling: touch;
+      margin: 0 auto;
+      border-radius: 18px;
+    }
 
       .fleet-focus-media {
         height: clamp(220px, 42vh, 320px);
@@ -1288,8 +1306,27 @@ body.is-overlay-open {
         padding: 7px 11px;
       }
     }
+
+.fleet-focus-card.is-compact .fleet-focus-content {
+  padding: 16px;
+}
+
+.fleet-focus-card.is-compact .fleet-focus-title {
+  font-size: clamp(22px, 6vw, 30px);
+}
+
+.fleet-focus-card.is-compact .fleet-focus-copy {
+  font-size: 14px;
+  line-height: 1.5;
+}
 .logo-title {
   font-size: 18px;
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
 }
 
 .logo-subtitle {
