@@ -1148,7 +1148,7 @@ body.is-overlay-open {
         scrollbar-width: none;
         scroll-padding-inline: 0;
         overscroll-behavior-x: contain;
-        touch-action: pan-x;
+        touch-action: pan-x pan-y;
       }
 
       .fleet::-webkit-scrollbar,
@@ -1163,6 +1163,7 @@ body.is-overlay-open {
         scroll-snap-align: center;
         scroll-snap-stop: always;
         transition: transform 0.35s ease, opacity 0.35s ease;
+        touch-action: pan-y;
       }
 
       .fleet::before,
@@ -1356,4 +1357,77 @@ body.is-overlay-open {
 .cta-title {
   font-size: 20px;
 }
+
+@media (max-width: 768px) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  body,
+  main,
+  section,
+  .wrap {
+    touch-action: pan-y;
+  }
+
+  .card,
+  .car,
+  .hero-card,
+  .crew-card,
+  .pilot-card,
+  .agenda-block,
+  .cta-band,
+  .cta,
+  .social-link,
+  .car-action {
+    touch-action: pan-y;
+  }
+
+  .fleet,
+  .grid,
+  .service-widgets {
+    scroll-behavior: auto;
+  }
+
+  .card,
+  .car,
+  .hero-card,
+  .cta,
+  .social-link,
+  .car-action,
+  .floating-home,
+  .fleet-focus-card,
+  .fleet-focus-overlay {
+    box-shadow: none;
+  }
+
+  .card,
+  .car,
+  .hero-card,
+  .cta,
+  .social-link,
+  .car-action,
+  .floating-home,
+  .fleet-focus-card,
+  .fleet-focus-overlay,
+  .fleet-focus-card-control,
+  .car-photo-control,
+  .mobile-carousel-dot {
+    transition: none;
+  }
+
+  .card:hover,
+  .car:hover,
+  .social-link:hover,
+  .cta:hover,
+  .car-action:hover,
+  .floating-home:hover {
+    transform: none;
+  }
+
+  .fleet-focus-overlay {
+    backdrop-filter: none;
+  }
+}
+
 

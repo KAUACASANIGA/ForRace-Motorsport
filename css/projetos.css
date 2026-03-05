@@ -687,6 +687,16 @@
 }
 
 @media (max-width: 720px) {
+  .project-card,
+  .service-widget,
+  .project-focus-card,
+  .project-rent-preview,
+  .project-rent-widget,
+  .project-track-button,
+  .project-focus-content {
+    touch-action: pan-y;
+  }
+
   .projects-hero {
     grid-template-columns: 1fr;
     gap: 18px;
@@ -730,7 +740,7 @@
     justify-content: flex-start;
     scroll-padding-inline: 0;
     overscroll-behavior-x: contain;
-    touch-action: pan-x;
+    touch-action: pan-x pan-y;
     scroll-snap-stop: always;
     align-items: flex-start;
   }
@@ -748,7 +758,7 @@
     scroll-snap-align: center;
     scroll-snap-stop: always;
     transition: transform 0.35s ease, opacity 0.35s ease;
-    touch-action: pan-x;
+    touch-action: pan-y;
   }
 
   .projects-grid::before,
@@ -1023,4 +1033,48 @@
 
 .project-focus-card.is-compact .project-focus-header {
   padding: 12px;
+}
+
+@media (max-width: 768px) {
+  .projects-grid {
+    scroll-behavior: auto;
+  }
+
+  .projects-carousel-control,
+  .project-card,
+  .service-widget,
+  .project-focus-card,
+  .project-focus-card-control,
+  .project-focus-dot,
+  .project-focus-card-dot,
+  .project-focus-close {
+    transition: none;
+  }
+
+  .project-card,
+  .service-widget,
+  .project-focus-card {
+    box-shadow: none;
+  }
+
+  .project-card:hover,
+  .service-widget:hover {
+    transform: none;
+  }
+
+  .project-focus-overlay,
+  .project-focus-header,
+  .project-focus-card-dots {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .project-focus-media,
+  .project-focus-video {
+    transition: none;
+  }
+
+  .project-track-button img {
+    filter: none;
+  }
 }
