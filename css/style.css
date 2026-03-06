@@ -26,44 +26,44 @@
       font-style: italic;
     }
 
-* {
-  box-sizing: border-box;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
 
-html {
-  background-color: #0b0d10;
-  height: 100%;
-}
+    html {
+      background-color: #0b0d10;
+      height: 100%;
+    }
 
-body {
-  margin: 0;
-  min-height: 100%;
-  background-color: #0b0d10;
-  background: radial-gradient(circle at 20% 20%, rgba(240, 74, 58, 0.2), transparent 45%),
-  radial-gradient(circle at 80% 0%, rgba(247, 197, 72, 0.18), transparent 40%),
-  linear-gradient(180deg, #0b0d10 0%, #0f1217 50%, #0b0d10 100%);
-  color: var(--ink);
+    body {
+      margin: 0;
+      min-height: 100%;
+      background-color: #0b0d10;
+      background: radial-gradient(circle at 20% 20%, rgba(240, 74, 58, 0.2), transparent 45%),
+        radial-gradient(circle at 80% 0%, rgba(247, 197, 72, 0.18), transparent 40%),
+        linear-gradient(180deg, #0b0d10 0%, #0f1217 50%, #0b0d10 100%);
+      color: var(--ink);
       font-family: var(--display-font);
       letter-spacing: 0.4px;
       font-weight: 700;
     }
 
-body.is-overlay-open .mobile-quick-nav {
-  visibility: hidden;
-  pointer-events: none;
-}
+    body.is-overlay-open .mobile-quick-nav {
+      visibility: hidden;
+      pointer-events: none;
+    }
 
-body.is-overlay-open {
-  overflow: hidden;
-  position: fixed;
-  width: 100%;
-}
+    body.is-overlay-open {
+      overflow: hidden;
+      position: fixed;
+      width: 100%;
+    }
 
     .wrap {
       max-width: 1100px;
@@ -139,29 +139,10 @@ body.is-overlay-open {
     nav a {
       color: var(--muted);
       text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      min-height: 32px;
+      font-size: 15px;
+      font-weight: 500;
       transition: color 0.2s ease;
-    }
-
-    .home-link {
-      width: 32px;
-      height: 32px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      display: inline-grid;
-      place-items: center;
-      color: var(--muted);
-      background: rgba(255, 255, 255, 0.03);
-      flex: 0 0 32px;
-      transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-    }
-
-    .home-link svg {
-      width: 16px;
-      height: 16px;
-      display: block;
+      letter-spacing: 0.5px;
     }
 
     nav a:hover {
@@ -257,6 +238,7 @@ body.is-overlay-open {
     .cta {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
       padding: 14px 22px;
       border-radius: 999px;
@@ -266,7 +248,29 @@ body.is-overlay-open {
       font-size: 14px;
       letter-spacing: 1px;
       box-shadow: 0 20px 40px rgba(240, 74, 58, 0.25);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .cta::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--accent-2);
+      border-radius: inherit;
+      z-index: -1;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .cta:hover::before {
+      transform: scaleX(1);
     }
 
     .cta-group {
@@ -382,7 +386,7 @@ body.is-overlay-open {
       visibility: hidden;
       pointer-events: none;
       transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-                  visibility 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        visibility 0.5s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .fleet-focus-overlay.is-visible {
@@ -409,7 +413,7 @@ body.is-overlay-open {
         0 0 0 1px rgba(247, 197, 72, 0.28);
       transform: translateY(34px) scale(0.955);
       transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
-                  box-shadow 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+        box-shadow 0.55s cubic-bezier(0.22, 1, 0.36, 1);
       scrollbar-width: thin;
       scrollbar-color: rgba(244, 242, 237, 0.34) transparent;
     }
@@ -603,8 +607,8 @@ body.is-overlay-open {
       transform: translateY(0) scale(1);
       box-shadow: 0 10px 18px -16px rgba(0, 0, 0, 0.4);
       transition: transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
-                  box-shadow 0.42s cubic-bezier(0.22, 1, 0.36, 1),
-                  border-color 0.32s ease;
+        box-shadow 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+        border-color 0.32s ease;
       will-change: transform, box-shadow;
     }
 
@@ -645,13 +649,18 @@ body.is-overlay-open {
       transform: translateY(0) scale(1);
       box-shadow: 0 10px 18px -16px rgba(0, 0, 0, 0.45);
       transition: transform 0.42s cubic-bezier(0.22, 1, 0.36, 1),
-                  box-shadow 0.42s cubic-bezier(0.22, 1, 0.36, 1),
-                  border-color 0.32s ease;
+        box-shadow 0.42s cubic-bezier(0.22, 1, 0.36, 1),
+        border-color 0.32s ease;
       will-change: transform, box-shadow;
     }
 
-    .car:nth-child(2) { animation-delay: 0.1s; }
-    .car:nth-child(3) { animation-delay: 0.2s; }
+    .car:nth-child(2) {
+      animation-delay: 0.1s;
+    }
+
+    .car:nth-child(3) {
+      animation-delay: 0.2s;
+    }
 
     .car:hover {
       transform: translateY(-26px) scale(1.03);
@@ -736,8 +745,13 @@ body.is-overlay-open {
       padding: 0;
     }
 
-    .car-photo-control.prev { left: 8px; }
-    .car-photo-control.next { right: 8px; }
+    .car-photo-control.prev {
+      left: 8px;
+    }
+
+    .car-photo-control.next {
+      right: 8px;
+    }
 
     .car-photo-dots {
       position: absolute;
@@ -788,7 +802,7 @@ body.is-overlay-open {
       line-height: 1.6;
     }
 
-    .car > p {
+    .car>p {
       margin-top: 2px;
       margin-bottom: 14px;
     }
@@ -880,8 +894,8 @@ body.is-overlay-open {
       transform: translateY(0) scale(1);
       box-shadow: 0 10px 18px -16px rgba(0, 0, 0, 0.4);
       transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-                  box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-                  border-color 0.3s ease;
+        box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+        border-color 0.3s ease;
       will-change: transform, box-shadow;
     }
 
@@ -951,6 +965,7 @@ body.is-overlay-open {
       display: flex;
       flex-direction: column;
     }
+
 
     .cta-band {
       margin-top: 64px;
@@ -1033,22 +1048,23 @@ body.is-overlay-open {
         opacity: 0;
         transform: translateY(18px);
       }
+
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
 
-@media (max-width: 768px) {
-  .wrap {
-    padding: 0 16px 56px;
-  }
-}
+    @media (max-width: 768px) {
+      .wrap {
+        padding: 0 16px 56px;
+      }
+    }
 
-@media (max-width: 720px) {
-  .wrap {
-    padding: 0 14px 56px;
-  }
+    @media (max-width: 720px) {
+      .wrap {
+        padding: 0 14px 56px;
+      }
 
       nav {
         display: none;
@@ -1156,8 +1172,8 @@ body.is-overlay-open {
         display: none;
       }
 
-      .fleet > .car,
-      .grid > .card {
+      .fleet>.car,
+      .grid>.card {
         flex: 0 0 86%;
         max-width: 86%;
         scroll-snap-align: center;
@@ -1224,7 +1240,7 @@ body.is-overlay-open {
         padding: 0;
       }
 
-      .agenda-grid > .card {
+      .agenda-grid>.card {
         flex: initial;
         max-width: none;
       }
@@ -1274,16 +1290,16 @@ body.is-overlay-open {
         place-items: center;
       }
 
-    .fleet-focus-card {
-      width: min(94vw, 620px);
-      height: clamp(520px, 78vh, 680px);
-      max-height: calc(100vh - 88px);
-      max-height: calc(100svh - 88px);
-      overflow: hidden;
-      -webkit-overflow-scrolling: touch;
-      margin: 0 auto;
-      border-radius: 18px;
-    }
+      .fleet-focus-card {
+        width: min(94vw, 620px);
+        height: clamp(520px, 78vh, 680px);
+        max-height: calc(100vh - 88px);
+        max-height: calc(100svh - 88px);
+        overflow: hidden;
+        -webkit-overflow-scrolling: touch;
+        margin: 0 auto;
+        border-radius: 18px;
+      }
 
       .fleet-focus-media {
         height: clamp(220px, 42vh, 320px);
@@ -1321,113 +1337,158 @@ body.is-overlay-open {
       }
     }
 
-.fleet-focus-card.is-compact .fleet-focus-content {
-  padding: 16px;
-}
+    .fleet-focus-card.is-compact .fleet-focus-content {
+      padding: 16px;
+    }
 
-.fleet-focus-card.is-compact .fleet-focus-title {
-  font-size: clamp(22px, 6vw, 30px);
-}
+    .fleet-focus-card.is-compact .fleet-focus-title {
+      font-size: clamp(22px, 6vw, 30px);
+    }
 
-.fleet-focus-card.is-compact .fleet-focus-copy {
-  font-size: 14px;
-  line-height: 1.5;
-}
-.logo-title {
-  font-size: 18px;
-}
+    .fleet-focus-card.is-compact .fleet-focus-copy {
+      font-size: 14px;
+      line-height: 1.5;
+    }
 
-@media (max-width: 480px) {
-  body {
-    font-size: 14px;
-  }
-}
+    /* Scroll Reveal Utilities */
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      visibility: hidden;
+      transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+        visibility 1.2s;
+      will-change: opacity, transform;
+    }
 
-.logo-subtitle {
-  font-size: 12px;
-  color: var(--muted);
-}
+    .scroll-reveal.is-revealed {
+      opacity: 1;
+      transform: translateY(0);
+      visibility: visible;
+    }
 
-.setup-text {
-  font-family: var(--body-font);
-  color: var(--muted);
-  line-height: 1.6;
-}
+    @media (prefers-reduced-motion: reduce) {
+      .scroll-reveal {
+        transition: none;
+        opacity: 1;
+        transform: none;
+        visibility: visible;
+      }
+    }
 
-.cta-title {
-  font-size: 20px;
-}
+    .delay-100 {
+      transition-delay: 0.15s;
+    }
 
-@media (max-width: 768px) {
-  html {
-    scroll-behavior: auto;
-  }
+    .delay-200 {
+      transition-delay: 0.3s;
+    }
 
-  body,
-  main,
-  section,
-  .wrap {
-    touch-action: pan-y;
-  }
+    .delay-300 {
+      transition-delay: 0.45s;
+    }
 
-  .card,
-  .car,
-  .hero-card,
-  .crew-card,
-  .pilot-card,
-  .agenda-block,
-  .cta-band,
-  .cta,
-  .social-link,
-  .car-action {
-    touch-action: pan-x pan-y;
-  }
+    .delay-400 {
+      transition-delay: 0.6s;
+    }
 
-  .fleet,
-  .grid,
-  .service-widgets {
-    scroll-behavior: auto;
-  }
+    .delay-500 {
+      transition-delay: 0.75s;
+    }
 
-  .card,
-  .car,
-  .hero-card,
-  .cta,
-  .social-link,
-  .car-action,
-  .floating-home,
-  .fleet-focus-card,
-  .fleet-focus-overlay {
-    box-shadow: none;
-  }
+    .logo-title {
+      font-size: 18px;
+    }
 
-  .card,
-  .car,
-  .hero-card,
-  .cta,
-  .social-link,
-  .car-action,
-  .floating-home,
-  .fleet-focus-card,
-  .fleet-focus-overlay,
-  .fleet-focus-card-control,
-  .car-photo-control,
-  .mobile-carousel-dot {
-    transition: none;
-  }
+    @media (max-width: 480px) {
+      body {
+        font-size: 14px;
+      }
+    }
 
-  .card:hover,
-  .car:hover,
-  .social-link:hover,
-  .cta:hover,
-  .car-action:hover,
-  .floating-home:hover {
-    transform: none;
-  }
+    .logo-subtitle {
+      font-size: 12px;
+      color: var(--muted);
+    }
 
-  .fleet-focus-overlay {
-    backdrop-filter: none;
-  }
-}
+    .setup-text {
+      font-family: var(--body-font);
+      color: var(--muted);
+      line-height: 1.6;
+    }
 
+    .cta-title {
+      font-size: 20px;
+    }
 
+    @media (max-width: 768px) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      body,
+      main,
+      section,
+      .wrap {
+        touch-action: pan-y;
+      }
+
+      .card,
+      .car,
+      .hero-card,
+      .crew-card,
+      .pilot-card,
+      .agenda-block,
+      .cta-band,
+      .cta,
+      .social-link,
+      .car-action {
+        touch-action: pan-x pan-y;
+      }
+
+      .fleet,
+      .grid,
+      .service-widgets {
+        scroll-behavior: auto;
+      }
+
+      .card,
+      .car,
+      .hero-card,
+      .cta,
+      .social-link,
+      .car-action,
+      .floating-home,
+      .fleet-focus-card,
+      .fleet-focus-overlay {
+        box-shadow: none;
+      }
+
+      .card,
+      .car,
+      .hero-card,
+      .cta,
+      .social-link,
+      .car-action,
+      .floating-home,
+      .fleet-focus-card,
+      .fleet-focus-overlay,
+      .fleet-focus-card-control,
+      .car-photo-control,
+      .mobile-carousel-dot {
+        transition: none;
+      }
+
+      .card:hover,
+      .car:hover,
+      .social-link:hover,
+      .cta:hover,
+      .car-action:hover,
+      .floating-home:hover {
+        transform: none;
+      }
+
+      .fleet-focus-overlay {
+        backdrop-filter: none;
+      }
+    }

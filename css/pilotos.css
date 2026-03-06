@@ -74,7 +74,7 @@
     display: none;
   }
 
-  .crew-grid > .crew-card {
+  .crew-grid>.crew-card {
     flex: 0 0 100%;
     max-width: 100%;
     scroll-snap-align: center;

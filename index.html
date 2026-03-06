@@ -1,5 +1,6 @@
 ﻿<!doctype html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -9,259 +10,272 @@
   <link rel="manifest" href="site.webmanifest?v=20260223-3" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
-<div id="home-top"></div>
-<div class="wrap">
-  <header>
-    <a class="logo-link" href="#home-top" aria-label="Voltar para o inicio da apresentacao">
-      <div class="logo">
-        <div class="logo-mark">FR</div>
-        <div>
-          <div class="logo-title brand">ForRace</div>
-          <div class="logo-subtitle">Equipe de corrida</div>
+  <div id="home-top"></div>
+  <div class="wrap">
+    <header>
+      <a class="logo-link" href="#home-top" aria-label="Voltar para o inicio da apresentacao">
+        <div class="logo">
+          <div class="logo-mark">FR</div>
+          <div>
+            <div class="logo-title brand">ForRace</div>
+            <div class="logo-subtitle">Equipe de corrida</div>
+          </div>
+        </div>
+      </a>
+      <nav>
+        <a class="home-link" href="index.html" aria-label="Pagina inicial">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor"
+              d="M12 3.1 3 10.2v10h6.4v-6.2h5.2v6.2H21v-10L12 3.1zm0 2.3 7 5.5v7.3h-2.4V12h-9.2v6.2H5v-7.3l7-5.5z" />
+          </svg>
+        </a>
+        <a href="pilotos.html">Pilotos</a>
+        <a href="projetos.html">Projetos</a>
+        <a href="#agenda">Agenda</a>
+        <a href="#localizacao">Localização</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <div class="mobile-quick-nav" aria-label="Navegacao rapida">
+        <button class="mobile-menu-toggle" type="button" aria-expanded="false"
+          aria-label="Abrir menu de navegacao">=</button>
+      </div>
+      <div class="mobile-menu-panel" aria-hidden="true"></div>
+    </header>
+
+    <section class="hero">
+      <div class="scroll-reveal">
+        <h1><span class="brand">ForRace</span><br>velocidade com atitude.</h1>
+        <p>
+          Clássicos lendários e engenharia de ponta juntos na pista. De ícones como fusca,
+          Escort, Gol, Passat e Ka até um avançado protótipo Spyder: Nossa frota agressiva nasceu para
+          dominar retas e devorar curvas.
+        </p>
+        <a class="cta" href="#contato">Fale com a equipe</a>
+      </div>
+      <div class="hero-card scroll-reveal delay-200">
+        <h2>Setup de pista</h2>
+        <p class="setup-text">
+          Suporte completo para você acelerar com segurança. Oferecemos auxílio de
+          pista em corridas e trackdays, instrução de pilotagem, estrutura de box profissional
+          e montagem de projetos para rua e competição
+        </p>
+        <div class="stats">
+          <a class="stat" href="#agenda">Calendário<span>Campeonato paulista + Superliga</span></a>
+          <a class="stat" href="#agenda">Trackdays<span>Crazy For Auto Race & Friends</span></a>
         </div>
       </div>
-    </a>
-    <nav>
-      <a class="home-link" href="index.html" aria-label="Pagina inicial">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path fill="currentColor" d="M12 3.1 3 10.2v10h6.4v-6.2h5.2v6.2H21v-10L12 3.1zm0 2.3 7 5.5v7.3h-2.4V12h-9.2v6.2H5v-7.3l7-5.5z"/>
-        </svg>
-      </a>
-      <a href="pilotos.html">Pilotos</a>
-      <a href="projetos.html">Projetos</a>
-      <a href="#agenda">Agenda</a>
-      <a href="#localizacao">Localização</a>
-      <a href="#contato">Contato</a>
-    </nav>
-    <div class="mobile-quick-nav" aria-label="Navegacao rapida">
-      <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-label="Abrir menu de navegacao">=</button>
-    </div>
-    <div class="mobile-menu-panel" aria-hidden="true"></div>
-  </header>
+    </section>
 
-  <section class="hero">
-    <div>
-      <h1><span class="brand">ForRace</span><br>velocidade com atitude.</h1>
-      <p>
-        Clássicos lendários e engenharia de ponta juntos na pista. De ícones como fusca,
-        Escort, Gol, Passat e Ka até um avançado protótipo Spyder: Nossa frota agressiva nasceu para
-        dominar retas e devorar curvas.
+    <section class="pilots-entry scroll-reveal" aria-label="Acesso para pagina de projetos">
+      <div>
+        <h2>Projetos em destaque</h2>
+        <p>Acelere nossos carros ou construa o seu. Explore a nossa frota completa para locação e conheça nossos
+          serviços de montagem e preparação</p>
+      </div>
+      <a class="cta pilots-entry-cta" href="projetos.html">Ir para Projetos</a>
+    </section>
+
+    <h2 class="section-title scroll-reveal" id="cars">Grid da <span class="brand">ForRace</span></h2>
+    <section class="fleet">
+      <article class="car scroll-reveal delay-100">
+        <div class="car-photo" data-gallery="img/fusca-copa.webp, img/fusca-copa-extra.webp"
+          data-gallery-alts="Fusca Copa fusca em pista|Fusca Copa fusca em pista - foto 2">
+          <img src="img/fusca-copa.webp" alt="Fusca Copa fusca em pista" loading="lazy" decoding="async" />
+          <div class="overlay">Fusca</div>
+        </div>
+        <div class="tag">Copa Fusca</div>
+        <h3>Fusca</h3>
+        <p>Chassi leve, motor aspirado e equilíbrio para provas curtas. O clássico que abre espaço no grid.</p>
+        <div class="car-actions">
+          <a class="car-action" href="projetos.html#destaques">Saiba mais</a>
+        </div>
+        <div class="car-stats">
+          <div>Potencia<span>135 cv</span></div>
+          <div>Peso<span>800 kg</span></div>
+          <div>Volta<span>2:07.4</span></div>
+        </div>
+        <div class="stripe"></div>
+      </article>
+      <article class="car scroll-reveal delay-200">
+        <div class="car-photo" data-gallery="img/escort-rs.webp, img/escort-rs-extra.webp"
+          data-gallery-alts="Escort RS em pista|Escort RS em pista - foto 2">
+          <img src="img/escort-rs.webp" alt="Escort RS em pista" loading="lazy" decoding="async" />
+          <div class="overlay">Escort</div>
+        </div>
+        <div class="tag">Rally clássicos </div>
+        <h3>Escort </h3>
+        <p>Pilotagem intuitiva e chassi colado no chão. Potência e torque na medida certa para uma volta rápida e
+          fluida.</p>
+        <div class="car-actions">
+          <a class="car-action" href="projetos.html#destaques">Saiba mais</a>
+          <a class="car-action is-primary" href="https://wa.me/5511945339281" target="_blank" rel="noopener">Consulte
+            disponibilidade</a>
+        </div>
+        <div class="car-stats">
+          <div>Potencia<span>150 cv</span></div>
+          <div>Peso<span>820 kg</span></div>
+          <div>Volta<span>2:05.8</span></div>
+        </div>
+        <div class="stripe"></div>
+      </article>
+      <article class="car scroll-reveal delay-300">
+        <div class="car-photo" data-gallery="img/gol-rally.webp" data-gallery-alts="Gol Rally em pista">
+          <img src="img/gol-rally.webp" alt="Gol Rally em pista" loading="lazy" decoding="async" />
+          <div class="overlay">Gol</div>
+        </div>
+        <div class="tag">Rally clássicos</div>
+        <h3>Gol</h3>
+        <p>Frenagem forte e chassi leve para você explorar cada limite. A experiência clássica definitiva ao lado do
+          Escort.</p>
+        <div class="car-actions">
+          <a class="car-action" href="projetos.html#destaques">Saiba mais</a>
+          <a class="car-action is-primary" href="https://wa.me/5511945339281" target="_blank" rel="noopener">Consulte
+            disponibilidade</a>
+        </div>
+        <div class="car-stats">
+          <div>Potencia<span>130 cv</span></div>
+          <div>Peso<span>780 kg</span></div>
+          <div>Volta<span>2:10.5</span></div>
+        </div>
+        <div class="stripe"></div>
+      </article>
+      <article class="car scroll-reveal delay-400">
+        <div class="car-photo" data-gallery="img/spyder-s1.webp, img/spyder-s1-extra.webp"
+          data-gallery-alts="Spyder S1 em pista|Spyder S1 em pista - foto 2">
+          <img src="img/spyder-s1.webp" alt="Spyder S1 em pista" loading="lazy" decoding="async" />
+          <div class="overlay">Spyder</div>
+        </div>
+        <div class="tag">Prototype</div>
+        <h3>Spyder </h3>
+        <p>Motor traseiro, tração traseira e pneus slicks, a combinação perfeita para diversão</p>
+        <div class="car-actions">
+          <a class="car-action" href="projetos.html#destaques">Saiba mais</a>
+          <a class="car-action is-primary" href="https://wa.me/5511945339281" target="_blank" rel="noopener">Consulte
+            disponibilidade</a>
+        </div>
+        <div class="car-stats">
+          <div>Potencia<span>180 cv</span></div>
+          <div>Peso<span>640 kg</span></div>
+          <div>Volta<span>1:48.6</span></div>
+        </div>
+        <div class="stripe"></div>
+      </article>
+    </section>
+
+    <h2 class="section-title scroll-reveal" id="historia">Nossa História</h2>
+    <section class="story">
+      <div class="story-photo scroll-reveal delay-100">
+        <img src="img/nossa-historia.webp" alt="Equipe em dia de pista" loading="lazy" decoding="async" />
+      </div>
+      <p class="story-text scroll-reveal delay-200">
+        A <span class="brand">ForRace</span> é fruto da paixão de dois irmãos que cresceram vivendo a realidade dos
+        autódromos. Aprendemos desde jovens a construir, preparar e pilotar carros de
+        corrida com o que tínhamos em mãos. Carregamos essa raiz até hoje, entregando
+        aos nossos clientes técnica artesanal, dedicação absoluta e o compromisso de
+        fazer cada volta na pista ser inesquecível.
       </p>
-      <a class="cta" href="#contato">Fale com a equipe</a>
-    </div>
-    <div class="hero-card">
-      <h2>Setup de pista</h2>
-      <p class="setup-text">
-        Suporte completo para você acelerar com segurança. Oferecemos auxílio de
-        pista em corridas e trackdays, instrução de pilotagem, estrutura de box profissional
-        e montagem de projetos para rua e competição
-      </p>
-      <div class="stats">
-        <a class="stat" href="#agenda">Calendário<span>Campeonato paulista + Superliga</span></a>
-        <a class="stat" href="#agenda">Trackdays<span>Crazy For Auto Race & Friends</span></a>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="pilots-entry" aria-label="Acesso para pagina de projetos">
-    <div>
-      <h2>Projetos em destaque</h2>
-      <p>Acelere nossos carros ou construa o seu. Explore a nossa frota completa para locação e conheça nossos serviços de montagem e preparação</p>
-    </div>
-    <a class="cta pilots-entry-cta" href="projetos.html">Ir para Projetos</a>
-  </section>
+    <h2 class="section-title scroll-reveal" id="agenda">Agenda 2026</h2>
+    <section class="grid agenda-grid">
+      <div class="card agenda-block scroll-reveal delay-100">
+        <h4>IMS - Interlagos Sports Marketing</h4>
+        <ul class="agenda-list">
+          <li>25/JAN - Autódromo de Interlagos, Sao Paulo/SP</li>
+          <li>22/FEV - Autódromo de Interlagos, Sao Paulo/SP</li>
+          <li>22/MAR - Autódromo Nelson Piquet, Brasilia/DF</li>
+          <li>19/ABR - Autódromo de Interlagos, Sao Paulo/SP</li>
+          <li>17/MAI - Autódromo de Interlagos, Sao Paulo/SP</li>
+          <li>07/JUN - Autódromo de Interlagos, Sao Paulo/SP</li>
+          <li>12/JUL - Autódromo Zilmar Beux, Cascavel/PR</li>
+          <li>02/AGO - Autódromo de Interlagos, Sao Paulo/SP</li>
+          <li>20/SET - Autódromo Ayrton Senna, Goiania/GO</li>
+          <li>18/OUT - Autódromo Zilmar Beux, Cascavel/PR</li>
+          <li>22/NOV - Autódromo de Chapeco, Chapeco/SC</li>
+          <li>20/DEZ - Autódromo de Interlagos, Sao Paulo/SP</li>
+        </ul>
+      </div>
+      <div class="card agenda-block scroll-reveal delay-200">
+        <h4>Super Liga</h4>
+        <ul class="agenda-list">
+          <li>06 a 08/FEV - Interlagos/SP (Automobilismo e Motovelocidade)</li>
+          <li>06 e 07/MAR - Potenza/MG (Automobilismo e Motovelocidade)</li>
+          <li>05/ABR - Interlagos/SP (Automobilismo)</li>
+          <li>02 e 03/MAI - Interlagos/SP (Automobilismo e Motovelocidade)</li>
+          <li>23 e 24/MAI - Londrina/PR (Motovelocidade)</li>
+          <li>03 e 04/JUN - Interlagos/SP (Automobilismo e Motovelocidade)</li>
+          <li>17 a 19/JUL - Interlagos/SP (Automobilismo e Motovelocidade)</li>
+          <li>07 a 09/AGO - Interlagos/SP (Automobilismo e Motovelocidade)</li>
+          <li>28 e 29/AGO - Londrina/PR (Motovelocidade)</li>
+          <li>11 e 12/SET - ECPA/SP (Automobilismo)</li>
+          <li>10 e 11/OUT - Londrina/PR (Motovelocidade)</li>
+          <li>05 e 06/DEZ - Londrina/PR (Automobilismo e Motovelocidade)</li>
+          <li>26 a 29/DEZ - Interlagos/SP (Automobilismo e Motovelocidade)</li>
+        </ul>
 
-  <h2 class="section-title" id="cars">Grid da <span class="brand">ForRace</span></h2>
-  <section class="fleet">
-    <article class="car">
-      <div class="car-photo" data-gallery="img/fusca-copa.webp, img/fusca-copa-extra.webp" data-gallery-alts="Fusca Copa fusca em pista|Fusca Copa fusca em pista - foto 2">
-        <img src="img/fusca-copa.webp" alt="Fusca Copa fusca em pista" loading="lazy" decoding="async" />
-        <div class="overlay">Fusca</div>
       </div>
-      <div class="tag">Copa Fusca</div>
-      <h3>Fusca</h3>
-      <p>Chassi leve, motor aspirado e equilíbrio para provas curtas. O clássico que abre espaço no grid.</p>
-      <div class="car-actions">
-        <a class="car-action" href="projetos.html#destaques">Saiba mais</a>
-      </div>
-      <div class="car-stats">
-        <div>Potencia<span>135 cv</span></div>
-        <div>Peso<span>800 kg</span></div>
-        <div>Volta<span>2:07.4</span></div>
-      </div>
-      <div class="stripe"></div>
-    </article>
-    <article class="car">
-      <div class="car-photo" data-gallery="img/escort-rs.webp, img/escort-rs-extra.webp" data-gallery-alts="Escort RS em pista|Escort RS em pista - foto 2">
-        <img src="img/escort-rs.webp" alt="Escort RS em pista" loading="lazy" decoding="async" />
-        <div class="overlay">Escort</div>
-      </div>
-      <div class="tag">Rally clássicos </div>
-      <h3>Escort </h3>
-      <p>Pilotagem intuitiva e chassi colado no chão. Potência e torque na medida certa para uma volta rápida e fluida.</p>
-      <div class="car-actions">
-        <a class="car-action" href="projetos.html#destaques">Saiba mais</a>
-        <a class="car-action is-primary" href="https://wa.me/5511945339281" target="_blank" rel="noopener">Consulte disponibilidade</a>
-      </div>
-      <div class="car-stats">
-        <div>Potencia<span>150 cv</span></div>
-        <div>Peso<span>820 kg</span></div>
-        <div>Volta<span>2:05.8</span></div>
-      </div>
-      <div class="stripe"></div>
-    </article>
-    <article class="car">
-      <div class="car-photo" data-gallery="img/gol-rally.webp" data-gallery-alts="Gol Rally em pista">
-        <img src="img/gol-rally.webp" alt="Gol Rally em pista" loading="lazy" decoding="async" />
-        <div class="overlay">Gol</div>
-      </div>
-      <div class="tag">Rally clássicos</div>
-      <h3>Gol</h3>
-      <p>Frenagem forte e chassi leve para você explorar cada limite. A experiência clássica definitiva ao lado do Escort.</p>
-      <div class="car-actions">
-        <a class="car-action" href="projetos.html#destaques">Saiba mais</a>
-        <a class="car-action is-primary" href="https://wa.me/5511945339281" target="_blank" rel="noopener">Consulte disponibilidade</a>
-      </div>
-      <div class="car-stats">
-        <div>Potencia<span>130 cv</span></div>
-        <div>Peso<span>780 kg</span></div>
-        <div>Volta<span>2:10.5</span></div>
-      </div>
-      <div class="stripe"></div>
-    </article>
-    <article class="car">
-      <div class="car-photo" data-gallery="img/spyder-s1.webp, img/spyder-s1-extra.webp" data-gallery-alts="Spyder S1 em pista|Spyder S1 em pista - foto 2">
-        <img src="img/spyder-s1.webp" alt="Spyder S1 em pista" loading="lazy" decoding="async" />
-        <div class="overlay">Spyder</div>
-      </div>
-      <div class="tag">Prototype</div>
-      <h3>Spyder </h3>
-      <p>Motor traseiro, tração traseira e pneus slicks, a combinação perfeita para diversão</p>
-      <div class="car-actions">
-        <a class="car-action" href="projetos.html#destaques">Saiba mais</a>
-        <a class="car-action is-primary" href="https://wa.me/5511945339281" target="_blank" rel="noopener">Consulte disponibilidade</a>
-      </div>
-      <div class="car-stats">
-        <div>Potencia<span>180 cv</span></div>
-        <div>Peso<span>640 kg</span></div>
-        <div>Volta<span>1:48.6</span></div>
-      </div>
-      <div class="stripe"></div>
-    </article>
-  </section>
+    </section>
 
-  <h2 class="section-title" id="historia">Nossa História</h2>
-  <section class="story">
-    <div class="story-photo">
-      <img src="img/nossa-historia.webp" alt="Equipe em dia de pista" loading="lazy" decoding="async" />
-    </div>
-    <p class="story-text">
-      A <span class="brand">ForRace</span> é fruto da paixão de dois irmãos que cresceram vivendo a realidade dos
-      autódromos. Aprendemos desde jovens a construir, preparar e pilotar carros de
-      corrida com o que tínhamos em mãos. Carregamos essa raiz até hoje, entregando
-      aos nossos clientes técnica artesanal, dedicação absoluta e o compromisso de
-      fazer cada volta na pista ser inesquecível.
-    </p>
-  </section>
+    <section class="cta-band scroll-reveal" id="contato">
+      <div>
+        <div class="cta-title">Entre para a nossa equipe</div>
+        <p>Seja para patrocínios, parcerias técnicas ou presença em eventos, o nosso motor já está aquecido. Estamos
+          prontos para acelerar juntos.</p>
+      </div>
+      <div class="cta-group">
+        <a class="social-link" href="https://wa.me/5511945339281" aria-label="WhatsApp da ForRace" target="_blank"
+          rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor"
+              d="M12.04 3a8.94 8.94 0 0 0-7.8 13.33L3 21l4.83-1.27A8.94 8.94 0 1 0 12.04 3zm0 1.8a7.14 7.14 0 1 1 0 14.28 7.1 7.1 0 0 1-3.64-1l-.27-.16-2.84.74.76-2.77-.18-.29a7.12 7.12 0 0 1-1.12-3.8A7.14 7.14 0 0 1 12.04 4.8zm4.1 9.15c-.22-.11-1.28-.63-1.47-.7-.2-.07-.34-.11-.49.11-.14.22-.56.7-.69.85-.12.14-.25.16-.46.05-.22-.1-.9-.33-1.7-1.06-.62-.56-1.04-1.26-1.16-1.47-.12-.22-.01-.33.09-.43.09-.09.22-.25.33-.37.11-.12.14-.21.22-.35.07-.14.03-.27-.02-.38-.06-.11-.49-1.18-.67-1.61-.18-.43-.36-.37-.49-.37h-.42c-.14 0-.38.05-.58.27-.2.22-.76.74-.76 1.8 0 1.05.78 2.07.89 2.21.11.14 1.54 2.35 3.73 3.29.52.22.93.35 1.25.45.52.16 1 .14 1.38.09.42-.06 1.28-.52 1.46-1.03.18-.5.18-.93.12-1.03-.05-.1-.2-.16-.42-.27z" />
+          </svg>
+          WhatsApp
+        </a>
+        <a class="social-link" href="https://www.instagram.com/forrace_motorsport/" aria-label="Instagram da ForRace"
+          target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path fill="currentColor"
+              d="M16.2 3H7.8C5.15 3 3 5.15 3 7.8v8.4C3 18.85 5.15 21 7.8 21h8.4c2.65 0 4.8-2.15 4.8-4.8V7.8C21 5.15 18.85 3 16.2 3zm3.3 13.2c0 1.82-1.48 3.3-3.3 3.3H7.8c-1.82 0-3.3-1.48-3.3-3.3V7.8c0-1.82 1.48-3.3 3.3-3.3h8.4c1.82 0 3.3 1.48 3.3 3.3v8.4zM12 7.2a4.8 4.8 0 1 0 0 9.6 4.8 4.8 0 0 0 0-9.6zm0 8.1a3.3 3.3 0 1 1 0-6.6 3.3 3.3 0 0 1 0 6.6zm4.95-8.7a1.05 1.05 0 1 0 0 2.1 1.05 1.05 0 0 0 0-2.1z" />
+          </svg>
+          Instagram
+        </a>
+      </div>
+    </section>
 
-  <h2 class="section-title" id="agenda">Agenda 2026</h2>
-  <section class="grid agenda-grid">
-    <div class="card agenda-block">
-      <h4>IMS - Interlagos Sports Marketing</h4>
-      <ul class="agenda-list">
-        <li>25/JAN - Autódromo de Interlagos, Sao Paulo/SP</li>
-        <li>22/FEV - Autódromo de Interlagos, Sao Paulo/SP</li>
-        <li>22/MAR - Autódromo Nelson Piquet, Brasilia/DF</li>
-        <li>19/ABR - Autódromo de Interlagos, Sao Paulo/SP</li>
-        <li>17/MAI - Autódromo de Interlagos, Sao Paulo/SP</li>
-        <li>07/JUN - Autódromo de Interlagos, Sao Paulo/SP</li>
-        <li>12/JUL - Autódromo Zilmar Beux, Cascavel/PR</li>
-        <li>02/AGO - Autódromo de Interlagos, Sao Paulo/SP</li>
-        <li>20/SET - Autódromo Ayrton Senna, Goiania/GO</li>
-        <li>18/OUT - Autódromo Zilmar Beux, Cascavel/PR</li>
-        <li>22/NOV - Autódromo de Chapeco, Chapeco/SC</li>
-        <li>20/DEZ - Autódromo de Interlagos, Sao Paulo/SP</li>
-      </ul>
-    </div>
-    <div class="card agenda-block">
-      <h4>Super Liga</h4>
-      <ul class="agenda-list">
-        <li>06 a 08/FEV - Interlagos/SP (Automobilismo e Motovelocidade)</li>
-        <li>06 e 07/MAR - Potenza/MG (Automobilismo e Motovelocidade)</li>
-        <li>05/ABR - Interlagos/SP (Automobilismo)</li>
-        <li>02 e 03/MAI - Interlagos/SP (Automobilismo e Motovelocidade)</li>
-        <li>23 e 24/MAI - Londrina/PR (Motovelocidade)</li>
-        <li>03 e 04/JUN - Interlagos/SP (Automobilismo e Motovelocidade)</li>
-        <li>17 a 19/JUL - Interlagos/SP (Automobilismo e Motovelocidade)</li>
-        <li>07 a 09/AGO - Interlagos/SP (Automobilismo e Motovelocidade)</li>
-        <li>28 e 29/AGO - Londrina/PR (Motovelocidade)</li>
-        <li>11 e 12/SET - ECPA/SP (Automobilismo)</li>
-        <li>10 e 11/OUT - Londrina/PR (Motovelocidade)</li>
-        <li>05 e 06/DEZ - Londrina/PR (Automobilismo e Motovelocidade)</li>
-        <li>26 a 29/DEZ - Interlagos/SP (Automobilismo e Motovelocidade)</li>
-      </ul>
-    </div>
-  </section>
+    <h2 class="section-title scroll-reveal" id="localizacao">Localizacao da oficina</h2>
+    <section class="location">
+      <article class="location-card scroll-reveal delay-100">
+        <h3><span class="brand">ForRace</span> Motorsport</h3>
+        <p>Av. Manoel Isidoro Martins, 408</p>
+        <p>Cidade Martins, Guarulhos - SP</p>
+        <p>CEP 07132-280</p>
+        <a class="cta location-cta"
+          href="https://maps.google.com/?q=Av.+Manoel+Isidoro+Martins,+408+-+Cidade+Martins,+Guarulhos+-+SP,+07132-280"
+          target="_blank" rel="noopener">
+          Abrir no mapa
+        </a>
+      </article>
+      <div class="location-map-wrap scroll-reveal delay-200">
+        <iframe class="location-map" title="Mapa da oficina ForRace" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://maps.google.com/maps?q=Av.%20Manoel%20Isidoro%20Martins,%20408%20-%20Cidade%20Martins,%20Guarulhos%20-%20SP,%2007132-280&output=embed">
+        </iframe>
+      </div>
+    </section>
 
-  <section class="cta-band" id="contato">
-    <div>
-      <div class="cta-title">Entre para a nossa equipe</div>
-      <p>Seja para patrocínios, parcerias técnicas ou presença em eventos, o nosso motor já está aquecido. Estamos prontos para acelerar juntos.</p>
-    </div>
-    <div class="cta-group">
-      <a class="social-link" href="https://wa.me/5511945339281" aria-label="WhatsApp da ForRace" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path fill="currentColor" d="M12.04 3a8.94 8.94 0 0 0-7.8 13.33L3 21l4.83-1.27A8.94 8.94 0 1 0 12.04 3zm0 1.8a7.14 7.14 0 1 1 0 14.28 7.1 7.1 0 0 1-3.64-1l-.27-.16-2.84.74.76-2.77-.18-.29a7.12 7.12 0 0 1-1.12-3.8A7.14 7.14 0 0 1 12.04 4.8zm4.1 9.15c-.22-.11-1.28-.63-1.47-.7-.2-.07-.34-.11-.49.11-.14.22-.56.7-.69.85-.12.14-.25.16-.46.05-.22-.1-.9-.33-1.7-1.06-.62-.56-1.04-1.26-1.16-1.47-.12-.22-.01-.33.09-.43.09-.09.22-.25.33-.37.11-.12.14-.21.22-.35.07-.14.03-.27-.02-.38-.06-.11-.49-1.18-.67-1.61-.18-.43-.36-.37-.49-.37h-.42c-.14 0-.38.05-.58.27-.2.22-.76.74-.76 1.8 0 1.05.78 2.07.89 2.21.11.14 1.54 2.35 3.73 3.29.52.22.93.35 1.25.45.52.16 1 .14 1.38.09.42-.06 1.28-.52 1.46-1.03.18-.5.18-.93.12-1.03-.05-.1-.2-.16-.42-.27z"/>
-        </svg>
-        WhatsApp
-      </a>
-      <a class="social-link" href="https://www.instagram.com/forrace_motorsport/" aria-label="Instagram da ForRace" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path fill="currentColor" d="M16.2 3H7.8C5.15 3 3 5.15 3 7.8v8.4C3 18.85 5.15 21 7.8 21h8.4c2.65 0 4.8-2.15 4.8-4.8V7.8C21 5.15 18.85 3 16.2 3zm3.3 13.2c0 1.82-1.48 3.3-3.3 3.3H7.8c-1.82 0-3.3-1.48-3.3-3.3V7.8c0-1.82 1.48-3.3 3.3-3.3h8.4c1.82 0 3.3 1.48 3.3 3.3v8.4zM12 7.2a4.8 4.8 0 1 0 0 9.6 4.8 4.8 0 0 0 0-9.6zm0 8.1a3.3 3.3 0 1 1 0-6.6 3.3 3.3 0 0 1 0 6.6zm4.95-8.7a1.05 1.05 0 1 0 0 2.1 1.05 1.05 0 0 0 0-2.1z"/>
-        </svg>
-        Instagram
-      </a>
-    </div>
-  </section>
-
-  <h2 class="section-title" id="localizacao">Localizacao da oficina</h2>
-  <section class="location">
-    <article class="location-card">
-      <h3><span class="brand">ForRace</span> Motorsport</h3>
-      <p>Av. Manoel Isidoro Martins, 408</p>
-      <p>Cidade Martins, Guarulhos - SP</p>
-      <p>CEP 07132-280</p>
-      <a class="cta location-cta" href="https://maps.google.com/?q=Av.+Manoel+Isidoro+Martins,+408+-+Cidade+Martins,+Guarulhos+-+SP,+07132-280" target="_blank" rel="noopener">
-        Abrir no mapa
-      </a>
-    </article>
-    <div class="location-map-wrap">
-      <iframe
-        class="location-map"
-        title="Mapa da oficina ForRace"
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        src="https://maps.google.com/maps?q=Av.%20Manoel%20Isidoro%20Martins,%20408%20-%20Cidade%20Martins,%20Guarulhos%20-%20SP,%2007132-280&output=embed">
-      </iframe>
-    </div>
-  </section>
-
-  <footer>
-    <span class="brand">ForRace</span> Racing Team - 2026
-  </footer>
-</div>
-<div id="fleet-focus-root"></div>
-<a class="floating-home" href="#home-top" aria-label="Voltar ao topo">
-  <svg viewBox="0 0 24 24" aria-hidden="true">
-    <path fill="currentColor" d="M12 7.4 6.2 13.2l1.4 1.4 3.4-3.4V20h2V11.2l3.4 3.4 1.4-1.4L12 7.4z"/>
-  </svg>
-</a>
-<script src="js/app.js"></script>
+    <footer>
+      <span class="brand">ForRace</span> Racing Team - 2026
+    </footer>
+  </div>
+  <div id="fleet-focus-root"></div>
+  <a class="floating-home" href="#home-top" aria-label="Voltar ao topo">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="currentColor" d="M12 7.4 6.2 13.2l1.4 1.4 3.4-3.4V20h2V11.2l3.4 3.4 1.4-1.4L12 7.4z" />
+    </svg>
+  </a>
+  <script src="js/app.js"></script>
 </body>
+
 </html>
-
-
-
-
-
