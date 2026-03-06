@@ -1,13 +1,13 @@
 // core.js - Shared functionality for the ForRace Motorsport site
 
-// Utility functions
-const parseDelimitedList = (value, separator) =>
+// Global utilities attached to window for other modules
+window.parseDelimitedList = (value, separator) =>
     (value || "")
         .split(separator)
         .map(item => item.trim())
         .filter(Boolean);
 
-const runFadeSwap = (element, fadeClassName, swapDelayMs, swap) => {
+window.runFadeSwap = (element, fadeClassName, swapDelayMs, swap) => {
     element.classList.add(fadeClassName);
     window.setTimeout(() => {
         swap();
@@ -21,7 +21,7 @@ const runFadeSwap = (element, fadeClassName, swapDelayMs, swap) => {
     }, swapDelayMs);
 };
 
-const bindHorizontalSwipe = (element, onSwipeLeft, onSwipeRight) => {
+window.bindHorizontalSwipe = (element, onSwipeLeft, onSwipeRight) => {
     let startX = null;
     let startY = null;
     const reset = () => { startX = null; startY = null; };
@@ -43,6 +43,34 @@ const bindHorizontalSwipe = (element, onSwipeLeft, onSwipeRight) => {
         if (deltaX < 0) onSwipeLeft(); else onSwipeRight();
     }, { passive: true });
     element.addEventListener("touchcancel", reset, { passive: true });
+};
+
+let scrollLockState = null;
+window.lockBodyScroll = () => {
+    if (scrollLockState) return;
+    const scrollY = window.scrollY || window.pageYOffset || 0;
+    scrollLockState = { scrollY };
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.left = "0";
+    document.body.style.right = "0";
+    document.body.style.width = "100%";
+    document.body.style.overflow = "hidden";
+    document.body.classList.add("is-overlay-open");
+};
+
+window.unlockBodyScroll = () => {
+    if (!scrollLockState) return;
+    const { scrollY } = scrollLockState;
+    document.body.style.position = "";
+    document.body.style.top = "";
+    document.body.style.left = "";
+    document.body.style.right = "";
+    document.body.style.width = "";
+    document.body.style.overflow = "";
+    document.body.classList.remove("is-overlay-open");
+    window.scrollTo(0, scrollY);
+    scrollLockState = null;
 };
 
 // Smooth scrolling for anchor links
@@ -75,6 +103,23 @@ const bindHorizontalSwipe = (element, onSwipeLeft, onSwipeRight) => {
     const toggle = quickNav?.querySelector(".mobile-menu-toggle");
     const panel = header?.querySelector(".mobile-menu-panel");
     if (!header || !nav || !quickNav || !toggle || !panel) return;
+
+    const navLinks = Array.from(nav.querySelectorAll("a"));
+    if (navLinks.length > 0) {
+        const used = new Set();
+        navLinks.forEach(link => {
+            const href = link.getAttribute("href");
+            const label = (link.textContent || "").trim() || link.getAttribute("aria-label") || "Link";
+            const key = `${href}|${label}`;
+            if (used.has(key)) return;
+            used.add(key);
+            const panelLink = document.createElement("a");
+            panelLink.href = href;
+            panelLink.textContent = label;
+            panel.appendChild(panelLink);
+        });
+    }
+
     const closeMenu = () => {
         toggle.setAttribute("aria-expanded", "false");
         panel.classList.remove("is-open");
@@ -120,7 +165,102 @@ const bindHorizontalSwipe = (element, onSwipeLeft, onSwipeRight) => {
     });
 })();
 
-// Mobile carousel dot navigation (used by fleet, grid, projects-grid, crew-grid, service-widgets)
+// Car Photo Gallery logic (Core)
+(() => {
+    const carPhotos = Array.from(document.querySelectorAll(".car-photo[data-gallery]"));
+    if (carPhotos.length === 0) return;
+
+    carPhotos.forEach((photo, photoIndex) => {
+        const sources = window.parseDelimitedList(photo.dataset.gallery, ",");
+        if (sources.length < 2) return;
+
+        const alts = window.parseDelimitedList(photo.dataset.galleryAlts, "|");
+        const placeholder = photo.querySelector("span");
+        if (placeholder) placeholder.remove();
+
+        let img = photo.querySelector("img");
+        if (!img) {
+            img = document.createElement("img");
+            photo.prepend(img);
+        }
+
+        let currentIndex = 0;
+        const dotsWrap = document.createElement("div");
+        dotsWrap.className = "car-photo-dots";
+
+        const prevButton = document.createElement("button");
+        prevButton.type = "button";
+        prevButton.className = "car-photo-control prev";
+        prevButton.setAttribute("aria-label", "Foto anterior");
+        prevButton.textContent = "<";
+
+        const nextButton = document.createElement("button");
+        nextButton.type = "button";
+        nextButton.className = "car-photo-control next";
+        nextButton.setAttribute("aria-label", "Proxima foto");
+        nextButton.textContent = ">";
+
+        const dotButtons = sources.map((_, index) => {
+            const dot = document.createElement("button");
+            dot.type = "button";
+            dot.className = "car-photo-dot";
+            dot.setAttribute("aria-label", `Ir para foto ${index + 1}`);
+            dotsWrap.appendChild(dot);
+            return dot;
+        });
+
+        const setSlide = (index, animate = true) => {
+            const nextIndex = (index + sources.length) % sources.length;
+            if (nextIndex === currentIndex && img.getAttribute("src")) return;
+
+            const applySlide = () => {
+                currentIndex = nextIndex;
+                img.src = sources[currentIndex];
+                img.alt = alts[currentIndex] || alts[0] || "Foto";
+                photo.dataset.activeIndex = String(currentIndex);
+                dotButtons.forEach((dot, dotIndex) => {
+                    dot.classList.toggle("is-active", dotIndex === currentIndex);
+                });
+            };
+
+            if (!animate) {
+                applySlide();
+                return;
+            }
+
+            window.runFadeSwap(img, "is-fading", 120, () => {
+                applySlide();
+            });
+        };
+
+        const stopCardClick = (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+        };
+
+        prevButton.addEventListener("click", (event) => {
+            stopCardClick(event);
+            setSlide(currentIndex - 1);
+        });
+
+        nextButton.addEventListener("click", (event) => {
+            stopCardClick(event);
+            setSlide(currentIndex + 1);
+        });
+
+        dotButtons.forEach((dot, dotIndex) => {
+            dot.addEventListener("click", (event) => {
+                stopCardClick(event);
+                setSlide(dotIndex);
+            });
+        });
+
+        photo.append(prevButton, nextButton, dotsWrap);
+        setSlide(0, false);
+    });
+})();
+
+// Mobile carousel dot navigation (common)
 (() => {
     const carouselContainers = Array.from(document.querySelectorAll(".fleet, .grid, .projects-grid, .crew-grid, .service-widgets"));
     if (carouselContainers.length === 0) return;
@@ -212,6 +352,3 @@ const bindHorizontalSwipe = (element, onSwipeLeft, onSwipeRight) => {
     const revealElements = document.querySelectorAll(".scroll-reveal");
     revealElements.forEach(el => observer.observe(el));
 })();
-
-// Export utilities if needed elsewhere
-export { parseDelimitedList, runFadeSwap, bindHorizontalSwipe };
